@@ -64,27 +64,4 @@ public class Main {
         return odczyt.nextInt();
     }
 
-    //Parsowanie czasu ze stringa
-    private static LocalTime pobierzCzas(String optional) {
-        Scanner odczyt = new Scanner(System.in);
-        while (true) {
-            System.out.printf("Podaj czas %sw formacie ##:##: ", optional);
-            String[] array = odczyt.next().split(":");
-            int a = -1;
-            int b = -1;
-            try {
-                if (array.length == 2) {
-                    a = Integer.parseInt(array[0]);
-                    b = Integer.parseInt(array[1]);
-                }
-
-            } catch (NumberFormatException e) {
-                e.printStackTrace();
-            }
-            if (a < 24 && a > -1 && b > -1 && b < 60) {
-                return LocalTime.of(a, b);
-            }
-        }
-
-    }
 }

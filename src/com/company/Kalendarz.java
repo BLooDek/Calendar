@@ -31,7 +31,7 @@ public class Kalendarz {
 
     public void wyswietlSpotkanie(int dzien, Priorytet priorytet) {
         int nrWydarzenia = 1;
-        for (Spotkanie index : miesiac[dzien]) {
+        for (Spotkanie index : miesiac[dzien]) { //zastąpic spotkanie abstractClassą jak będzie
             if (index.getPriorytet().equals(priorytet)) {
                 System.out.printf("%d. %s \n", nrWydarzenia, index.toString());
                 nrWydarzenia++;
@@ -42,7 +42,7 @@ public class Kalendarz {
 
     public void wyswietlWszystkieSpotkania(int dzien) {
         int nrWydarzenia = 1;
-        for (Object index : miesiac[dzien]) {
+        for (Object index : miesiac[dzien]) { //zastąpic spotkanie abstractClassą jak będzie
             System.out.printf("%d. %s \n", nrWydarzenia, index.toString());
             nrWydarzenia++;
         }
