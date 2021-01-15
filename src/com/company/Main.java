@@ -11,7 +11,7 @@ public class Main {
         int opcje;
         do {
             wyswietlOpcje();
-            System.out.println(pobierzCzas("początku "));
+
             opcje = pobierzInt("Wybierz opcje");
             switch (opcje) {
                 case 0:
