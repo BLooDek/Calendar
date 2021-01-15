@@ -2,7 +2,11 @@ package com.company;
 
 import java.time.LocalTime;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Comparator;
+import java.util.function.BiFunction;
+import java.util.function.Function;
+import java.util.function.Predicate;
 
 
 public class Kalendarz {
@@ -15,9 +19,9 @@ public class Kalendarz {
         }
     }
 
-    public void dodajSpotkanie(int dzien, LocalTime startTime, LocalTime endTime, String opis, Priorytet priorytet) {
+    public void dodajSpotkanie(int dzien, LocalTime startTime, LocalTime endTime, String opis, Priorytet priorytet, Statusy status) {
         if (startTime.isAfter(Spotkanie.LOWEST_HOUR) && validSpotkanie(dzien, startTime) && validSpotkanie(dzien, endTime)) {
-            miesiac[dzien].add(new Spotkanie(startTime, endTime, opis, priorytet));
+            miesiac[dzien].add(new Spotkanie(startTime, endTime, opis, priorytet, status));
             miesiac[dzien].sort(Comparator.comparing(Spotkanie::getCzasPoczatku));
         } else {
             System.out.println("Ten czas jest już zajęty!");
@@ -57,4 +61,18 @@ public class Kalendarz {
         }
         return true;
     }
+
+    public void wyswietlLambda(int dzien, Predicate<Spotkanie> toTest){
+        int nrWydarzenia = 1;
+        for (Spotkanie index : miesiac[dzien]) { //zastąpic spotkanie abstractClassą jak będzie
+            if (toTest.test(index)) {
+                System.out.printf("%d. %s \n", nrWydarzenia, index.toString());
+                nrWydarzenia++;
+            }
+        }
+        System.out.println("-------------------------");
+    }
+
+
+
 }
