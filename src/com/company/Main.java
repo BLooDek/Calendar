@@ -18,14 +18,22 @@ public class Main {
                     System.out.println("Do widzenia");
                     break;
                 case 1:
-                    kalendarz.dodajSpotkanie();
+                    kalendarz.dodajSpotkanie(pobierzInt("Podaj dzień miesiąca") - 1,
+                            LocalTime.parse(pobierzString("Podaj czas początku ##:## lub ##:##:##")),
+                            LocalTime.parse(pobierzString("Podaj czas końca ##:## lub ##:##:##")),
+                            pobierzString("Podaj opis"),
+                            Priorytet.findByNumber(pobierzInt("Podaj priorytet 1, 2 lub 3")));
                     break;
                 case 2:
-                    kalendarz.usunSpotkanie();
+                    kalendarz.usunSpotkanie(pobierzInt("Podaj dzień")-1,
+                            LocalTime.parse(pobierzString("Podaj czas początku spotkania które chcesz usunąć")));
                     break;
                 case 3:
-                    kalendarz.wyswietlSpotkanie();
+                    kalendarz.wyswietlSpotkanie(pobierzInt("Podaj dzień miesiąca")-1,
+                            Priorytet.findByNumber(pobierzInt("Podaj priorytet 1, 2 lub 3")));
                     break;
+                case 4:
+                    kalendarz.wyswietlWszystkieSpotkania(pobierzInt("Podaj dzień miesiaca")-1);
                 default:
                     System.out.println("Nie ma takiej opcji");
                     break;
