@@ -35,7 +35,7 @@ public class Spotkanie {
     }
 
     public String toString() {
-        return String.format("Czas początku: '%s', Czas zakończenia: '%s'\n opis: '%s'\n priorytet spotkania: %s!!! ", this.czasPoczatku.toString(), this.czasZakonczenia.toString(), this.opis, this.priorytet.name());
+        return String.format("spotkanie, Czas początku: '%s', Czas zakończenia: '%s' opis: '%s' priorytet: %s!!!", this.czasPoczatku.toString(), this.czasZakonczenia.toString(), this.opis, this.priorytet.name());
     }
 
 
