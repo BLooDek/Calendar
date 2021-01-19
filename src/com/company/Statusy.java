@@ -14,7 +14,5 @@ public enum Statusy {
             System.out.println("Nieznana odpowiedź, zakładam, że proponowane");
             return proponowane;
         }
-
     }
-
 }

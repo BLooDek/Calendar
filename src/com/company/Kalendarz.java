@@ -2,10 +2,7 @@ package com.company;
 
 import java.time.LocalTime;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Comparator;
-import java.util.function.BiFunction;
-import java.util.function.Function;
 import java.util.function.Predicate;
 
 
@@ -28,29 +25,8 @@ public class Kalendarz {
         }
     }
 
-
     public void usunSpotkanie(int dzien, LocalTime startTime) {
         miesiac[dzien].removeIf(index -> index.getCzasPoczatku().equals(startTime));
-    }
-
-    public void wyswietlSpotkanie(int dzien, Priorytet priorytet) {
-        int nrWydarzenia = 1;
-        for (Spotkanie index : miesiac[dzien]) { //zastąpic spotkanie abstractClassą jak będzie
-            if (index.getPriorytet().equals(priorytet)) {
-                System.out.printf("%d. %s \n", nrWydarzenia, index.toString());
-                nrWydarzenia++;
-            }
-        }
-        System.out.println("-------------------------------------");
-    }
-
-    public void wyswietlWszystkieSpotkania(int dzien) {
-        int nrWydarzenia = 1;
-        for (Object index : miesiac[dzien]) { //zastąpic spotkanie abstractClassą jak będzie
-            System.out.printf("%d. %s \n", nrWydarzenia, index.toString());
-            nrWydarzenia++;
-        }
-        System.out.println("-------------------------------------");
     }
 
     private boolean validSpotkanie(int dzien, LocalTime now) {
@@ -64,7 +40,7 @@ public class Kalendarz {
 
     public void wyswietlLambda(int dzien, Predicate<Spotkanie> toTest){
         int nrWydarzenia = 1;
-        for (Spotkanie index : miesiac[dzien]) { //zastąpic spotkanie abstractClassą jak będzie
+        for (Spotkanie index : miesiac[dzien]) {
             if (toTest.test(index)) {
                 System.out.printf("%d. %s \n", nrWydarzenia, index.toString());
                 nrWydarzenia++;

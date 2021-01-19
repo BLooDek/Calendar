@@ -2,9 +2,6 @@ package com.company;
 
 
 import java.time.LocalTime;
-import java.util.function.BiFunction;
-import java.util.function.Function;
-
 
 public class Spotkanie {
     private LocalTime czasPoczatku;
@@ -12,7 +9,7 @@ public class Spotkanie {
     private String opis;
     private Priorytet priorytet;
     private Statusy status;
-    public static final LocalTime LOWEST_HOUR = LocalTime.of(4, 0); //public bo final
+    public static final LocalTime LOWEST_HOUR = LocalTime.of(4, 0);
 
     public LocalTime getCzasPoczatku() {
         return czasPoczatku;
@@ -46,12 +43,6 @@ public class Spotkanie {
         return String.format("spotkanie, Czas początku: '%s', Czas zakończenia: '%s' opis: '%s' priorytet: %s status: %s !!!",
                 this.czasPoczatku.toString(), this.czasZakonczenia.toString(), this.opis, this.priorytet.name(), this.status.name());
     }
-
-
-
-
-
-
 }
 
 

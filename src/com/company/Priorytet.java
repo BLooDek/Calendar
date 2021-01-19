@@ -24,5 +24,4 @@ public enum Priorytet {
         }
         return null;
     }
-
 }
